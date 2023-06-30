@@ -23,6 +23,13 @@ body {
   min-width: 35%;
 }
 
+.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  bottom: 6rem;
+}
+
 .btn-primary {
   font-size: x-large;
 }
