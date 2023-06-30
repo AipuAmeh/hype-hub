@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../db/config');
 
-class Card extends Model {}
+class Topic extends Model {}
 
-Card.init(
+Topic.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,7 +11,7 @@ Card.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    card_title: {
+    topicName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -19,8 +19,8 @@ Card.init(
   {
     sequelize,
     underscored: true,
-    modelName: 'card',
+    modelName: 'Topic',
   }
 );
 
-module.exports = Card;
+module.exports = Topic;

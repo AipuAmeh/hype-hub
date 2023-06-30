@@ -26,3 +26,11 @@ body {
 .btn-primary {
   font-size: x-large;
 }
+
+.pl-4 {
+  padding-left: 5rem;
+}
+
+.pl-5 {
+  padding-left: 25rem;
+}

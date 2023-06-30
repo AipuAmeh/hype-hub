@@ -18,14 +18,31 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <input class="newListTitle" type="text" placeholder="Title">
+        <input id="newListTitle" type="text" placeholder="Title">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="savedTitle">Save</button>
+        <button type="submit" class="btn btn-primary"data-bs-dismiss="modal" id="savedTitle">Save</button>
       </div>
     </div>
   </div>
 </div>
 </div>
 
+{{#each topics as |topic|}}
+<a href="#">
+  <div class=" row row-cols-1 row-cols-md-2 pl-5 topic list">
+  <div class="row mb-2">
+ <div class="col ">
+    <div class="card">
+      <div class="pl-4 card-body">
+        <h5 class="card-title">{{topic.topicName}}</h5>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</a>
+{{/each}}
+
+<script src="/js/dashboard.js"></script>
