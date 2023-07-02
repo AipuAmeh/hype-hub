@@ -15,11 +15,23 @@ Topic.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'users',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
     underscored: true,
     modelName: 'Topic',
+    indexes: [
+      {
+        fields: ['topic_name'],
+      },
+    ],
   }
 );
 

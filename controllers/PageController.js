@@ -1,6 +1,6 @@
-const Topic = require('../models/topic');
-
+const Topic = require('../models/Topic');
 const Achievement = require('../models/Achievement');
+const fetchAchievementsByTopic = require('../middleware/achievementsByTopic');
 
 module.exports = {
   getDashboard: async (req, res) => {
@@ -33,14 +33,12 @@ module.exports = {
   },
 
   getTopic: async (req, res) => {
-    const rawAchievements = await Achievement.findAll({});
-    const achievements = rawAchievements.map(achievement =>
-      achievement.get({ plain: true })
-    );
+    const topicName = req.params.topicName;
+    const achievements = fetchAchievementsByTopic(topicName);
     // console.log(achievements);
     res.render('topic', {
-      topicName: 'Work',
-      // isAuthenticated: req.session.isAuthenticated,
+      topicName,
+      isAuthenticated: req.session.isAuthenticated,
       achievements,
     });
   },

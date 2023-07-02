@@ -23,6 +23,13 @@ Achievement.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    topic_name: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'topics',
+        key: 'topic_name',
+      },
+    },
   },
   {
     sequelize,
