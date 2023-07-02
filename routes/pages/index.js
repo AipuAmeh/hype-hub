@@ -10,7 +10,7 @@ router.get('/login', (req, res) => res.render('login'));
 
 // Pages with data
 router.get('/dashboard', isAuthenticated, PageController.getDashboard);
-router.get('/topic', isAuthenticated, PageController.getTopic);
+router.get('/topic/:topicId', isAuthenticated, PageController.getTopic);
 
 router.post('/dashboard', PageController.postDashboard);
 
