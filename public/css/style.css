@@ -12,3 +12,35 @@ body {
   border: none;
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+
+.addNew-card {
+  display: flex;
+  margin: 15rem 37rem;
+  flex: 0 1 300px;
+  padding: 5px;
+  width: 35%;
+  min-height: 100%;
+  min-width: 35%;
+}
+
+.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  bottom: 6rem;
+}
+
+.btn-primary {
+  font-size: x-large;
+}
+
+.pl-4 {
+  padding-left: 5rem;
+}
+
+.pl-5 {
+  padding-left: 25rem;
+}
+>>>>>>> 60badf97918971e9b3422160eee79daf2a6c148a

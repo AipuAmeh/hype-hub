@@ -12,4 +12,6 @@ router.get('/login', (req, res) => res.render('login'));
 router.get('/dashboard', isAuthenticated, PageController.getDashboard);
 router.get('/topic', PageController.getTopic);
 
+router.post('/dashboard', PageController.postDashboard);
+
 module.exports = router;
