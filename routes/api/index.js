@@ -7,5 +7,6 @@ router.post('/register', UserController.register);
 router.post('/login', UserController.login);
 router.post('/logout', isAuthenticated, UserController.logout);
 router.post('/topic', PageController.postAchievement);
+router.post('/dashboard', PageController.postDashboard);
 
 module.exports = router;

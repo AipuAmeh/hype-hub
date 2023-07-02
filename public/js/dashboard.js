@@ -7,7 +7,7 @@ const newTopicHandler = async event => {
   console.log(topicName);
   try {
     if (topicName) {
-      const response = await fetch(`/dashboard`, {
+      const response = await fetch(`/api/dashboard`, {
         method: 'POST',
         body: JSON.stringify({ topicName }),
         headers: {
