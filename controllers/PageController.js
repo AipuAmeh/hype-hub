@@ -35,7 +35,7 @@ module.exports = {
     const rawTopic = await Topic.findOne({ where: { id: topicId } });
     if (rawTopic) {
       const topic = rawTopic.get({ plain: true });
-      res.render('topic', { topic });
+      res.render('partials/topic', { topic });
     } else {
       res.status(404).send('Topic not found');
     }
