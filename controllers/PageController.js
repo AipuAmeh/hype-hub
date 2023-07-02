@@ -29,4 +29,15 @@ module.exports = {
       res.status(500).JSON(error);
     }
   },
+
+  getTopic: async (req, res) => {
+    const topicId = req.params.topicId;
+    const rawTopic = await Topic.findOne({ where: { id: topicId } });
+    if (rawTopic) {
+      const topic = rawTopic.get({ plain: true });
+      res.render('topic', { topic });
+    } else {
+      res.status(404).send('Topic not found');
+    }
+  },
 };
