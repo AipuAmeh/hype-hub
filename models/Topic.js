@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config');
+const sequelize = require('../db/config');
 
 class Topic extends Model {}
 
@@ -11,13 +11,15 @@ Topic.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    topic_name: {
+    topicName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   },
   {
     sequelize,
+    underscored: true,
+    modelName: 'Topic',
   }
 );
 

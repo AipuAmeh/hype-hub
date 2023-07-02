@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config');
+const sequelize = require('../db/config');
 
 class Achievement extends Model {}
 
@@ -12,7 +12,7 @@ Achievement.init(
       autoIncrement: true,
     },
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     subject: {
@@ -26,6 +26,8 @@ Achievement.init(
   },
   {
     sequelize,
+    underscored: true,
+    modelName: 'Achievement',
   }
 );
 
