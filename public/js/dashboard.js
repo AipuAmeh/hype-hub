@@ -1,5 +1,3 @@
-// const { EmptyResultError } = require("sequelize");
-
 const newTopicHandler = async event => {
   event.preventDefault();
 

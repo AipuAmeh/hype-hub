@@ -1,24 +1,24 @@
-// const { EmptyResultError } = require("sequelize");
-
 const newAchievementHandler = async event => {
   event.preventDefault();
-
+  const topicName = document.querySelector('#achievementFormLabel').textContent;
   const date = document.querySelector('#date').value.trim();
   const subject = document.querySelector('#subject').value.trim();
   const description = document.querySelector('#description').value.trim();
-
   try {
-    if (date && subject && description) {
-      const response = await fetch(`/api/topic/:topicName`, {
+    if (date && subject && description && topicName) {
+      const achievement = { date, subject, description, topicName };
+      console.log('calling response');
+      const response = await fetch(`/api/topic/${topicName}`, {
         method: 'POST',
-        body: JSON.stringify({ date, subject, description }),
+        body: JSON.stringify(achievement),
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
+      console.log(achievement, response);
       if (response.ok) {
-        document.location.replace('/topic/:topicName');
+        addAchievementToPage(achievement);
+        removeIntro();
       } else {
         alert('Failed to create achievement');
       }
@@ -27,6 +27,30 @@ const newAchievementHandler = async event => {
     console.error(error);
   }
 };
+
+function addAchievementToPage(achievement) {
+  const container = document.querySelector('#achievementContainer');
+  console.log(achievement);
+  if (container) {
+    container.insertAdjacentHTML(
+      'afterbegin',
+      `  <li>
+        <div class='card' style='width: 18rem;'>
+          <div class='card-body'>
+            <h5 class='card-title'>${achievement.subject}</h5>
+            <h6 class='card-subtitle mb-2 text-muted'>${achievement.date}</h6>
+            <p class='card-text'>${achievement.description}</p>
+          </div>
+        </div>
+      </li>`
+    );
+  }
+}
+
+function removeIntro() {
+  const intro = document.querySelector('#intro');
+  if (intro) intro.remove();
+}
 
 document
   .querySelector('.achievement-form')

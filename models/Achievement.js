@@ -25,10 +25,7 @@ Achievement.init(
     },
     topic_name: {
       type: DataTypes.STRING,
-      references: {
-        model: 'topics',
-        key: 'topic_name',
-      },
+      allowNull: false,
     },
   },
   {

@@ -24,7 +24,7 @@ module.exports = {
     try {
       const topic = newTopic.get({ plain: true });
       console.log(topic);
-      res.status(200).render('dashboard', {
+      res.status(201).render('dashboard', {
         topicName: topic.topicName,
       });
     } catch (error) {
@@ -34,8 +34,8 @@ module.exports = {
 
   getTopic: async (req, res) => {
     const topicName = req.params.topicName;
-    const achievements = fetchAchievementsByTopic(topicName);
-    // console.log(achievements);
+    const achievements = await fetchAchievementsByTopic(topicName);
+    console.log(achievements);
     res.render('topic', {
       topicName,
       isAuthenticated: req.session.isAuthenticated,
@@ -44,20 +44,25 @@ module.exports = {
   },
 
   postAchievement: async (req, res) => {
-    console.log('my post route');
+    console.log('my post route', req.body);
     try {
       const newAchievement = await Achievement.create({
-        ...req.body,
+        date: req.body.date,
+        subject: req.body.subject,
+        description: req.body.description,
+        topic_name: req.body.topicName,
       });
       const achievement = newAchievement.get({ plain: true });
       console.log(achievement);
-      res.status(200).render('topic', {
+      res.status(201).render('topic', {
         date: achievement.date,
         subject: achievement.subject,
         description: achievement.description,
+        topic_name: achievement.topicName,
       });
     } catch (error) {
-      res.status(500).JSON(error);
+      console.error(error);
+      res.status(500);
     }
   },
 };

@@ -22,7 +22,10 @@
   <div class='modal-dialog'>
     <div class='modal-content'>
       <div class='modal-header'>
-        <h1 class='modal-title fs-5' id='achievementFormLabel'>New Achievement</h1>
+        <h1
+          class='modal-title fs-5'
+          id='achievementFormLabel'
+        >{{topicName}}</h1>
         <button
           type='button'
           class='btn-close'
@@ -59,14 +62,19 @@
               rows='5'
             ></textarea>
           </div>
-          <button type='submit' class='btn btn-primary'>Add it!</button>
+          <button
+            type='submit'
+            class='btn btn-primary'
+            data-bs-dismiss='modal'
+            id='submitBtn'
+          >Add it!</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-{{#if achievements.length}}
-  <ul>
+<ul id='achievementContainer'>
+  {{#if achievements.length}}
     {{#each achievements as |achievement|}}
       <li>
         <div class='card' style='width: 18rem;'>
@@ -78,15 +86,16 @@
         </div>
       </li>
     {{/each}}
-  </ul>
-{{else}}
-  <div class='card' style='width: 18rem;'>
-    <div class='card-body'>
-      <h5 class='card-title'>Let's start the hype!</h5>
-      <p class='card-text'>Create achievements for this topic and celebrate your
-        growth!
-      </p>
+  {{else}}
+    <div class='card' id='intro' style='width: 18rem;'>
+      <div class='card-body'>
+        <h5 class='card-title'>Let's start the hype!</h5>
+        <p class='card-text'>Create achievements for this topic and celebrate
+          your growth!
+        </p>
+      </div>
     </div>
-  </div>
-{{/if}}
+  {{/if}}
+</ul>
+<script>console.log('{{achievement}}')</script>
 <script src='/js/topic.js'></script>
