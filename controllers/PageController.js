@@ -38,8 +38,9 @@ module.exports = {
     const topic = await Topic.findByPk(req.params.id);
     const topicName = topic.topicName;
     const topicId = req.params.id;
+    console.log('>>>> these >>>', topic, topicName);
     const achievements = await fetchAchievementsByTopic(topicId);
-    console.log(topic, topicName, topicId, achievements);
+    // console.log(topic, topicName, topicId, achievements);
     res.render('topic', {
       topicName,
       topicId,
@@ -49,20 +50,25 @@ module.exports = {
   },
 
   postAchievement: async (req, res) => {
+    const topic = await Topic.findAll({
+      where: {
+        topicName: `${req.params.id}`,
+      },
+    });
+    const topicId = topic[0].dataValues.id;
     try {
       const newAchievement = await Achievement.create({
         date: req.body.date,
         subject: req.body.subject,
         description: req.body.description,
-        topic_name: req.body.topicName,
+        topic_id: topicId,
       });
       const achievement = newAchievement.get({ plain: true });
-      console.log(achievement);
       res.status(201).render('topic', {
         date: achievement.date,
         subject: achievement.subject,
         description: achievement.description,
-        topic_name: achievement.topicName,
+        topic_id: achievement.topic_id,
       });
     } catch (error) {
       console.error(error);
