@@ -7,7 +7,6 @@ const newAchievementHandler = async event => {
   try {
     if (date && subject && description && topicName) {
       const achievement = { date, subject, description, topicName };
-      console.log('calling response');
       const response = await fetch(`/api/topic/${topicName}`, {
         method: 'POST',
         body: JSON.stringify(achievement),
@@ -15,7 +14,6 @@ const newAchievementHandler = async event => {
           'Content-Type': 'application/json',
         },
       });
-      console.log(achievement, response);
       if (response.ok) {
         addAchievementToPage(achievement);
         removeIntro();
@@ -28,9 +26,8 @@ const newAchievementHandler = async event => {
   }
 };
 
-function addAchievementToPage(achievement) {
+const addAchievementToPage = achievement => {
   const container = document.querySelector('#achievementContainer');
-  console.log(achievement);
   if (container) {
     container.insertAdjacentHTML(
       'afterbegin',
@@ -45,12 +42,12 @@ function addAchievementToPage(achievement) {
       </li>`
     );
   }
-}
+};
 
-function removeIntro() {
+const removeIntro = () => {
   const intro = document.querySelector('#intro');
   if (intro) intro.remove();
-}
+};
 
 document
   .querySelector('.achievement-form')

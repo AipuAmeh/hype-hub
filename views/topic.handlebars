@@ -1,6 +1,6 @@
 <h1 class='text-center m-auto p-2 fw-bold'>{{topicName}}</h1>
 <div class='container text-center my-3'>
-  {{! Button trigger modal }}
+  <!-- Button trigger modal -->
   <button
     type='button'
     class='btn btn-primary'
@@ -11,7 +11,7 @@
   </button>
 </div>
 
-{{! Modal }}
+<!-- Modal -->
 <div
   class='modal fade'
   id='achievementForm'
@@ -73,6 +73,8 @@
     </div>
   </div>
 </div>
+
+<!-- Achievements -->
 <ul id='achievementContainer'>
   {{#if achievements.length}}
     {{#each achievements as |achievement|}}
@@ -87,6 +89,8 @@
       </li>
     {{/each}}
   {{else}}
+
+    <!-- Intro Card -->
     <div class='card' id='intro' style='width: 18rem;'>
       <div class='card-body'>
         <h5 class='card-title'>Let's start the hype!</h5>
@@ -97,5 +101,4 @@
     </div>
   {{/if}}
 </ul>
-<script>console.log('{{achievement}}')</script>
 <script src='/js/topic.js'></script>
