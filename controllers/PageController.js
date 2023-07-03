@@ -1,6 +1,6 @@
 const Topic = require('../models/Topic');
 const Achievement = require('../models/Achievement');
-const fetchAchievementsByTopic = require('../middleware/achievementsByTopic');
+const fetchAchievementsByTopic = require('../helpers/achievementsByTopic');
 
 module.exports = {
   getDashboard: async (req, res) => {
@@ -8,7 +8,7 @@ module.exports = {
     const rawTopics = await Topic.findAll({});
     const topics = rawTopics.map(topic => topic.get({ plain: true }));
     console.log(topics);
-    // loop through each topic and get plain true
+    // * loop through each topic and get plain true
     res.render('dashboard', {
       welcomeMessage: `Welcome back to HypeHub ${req.session.currentUser.firstName}!`,
       isAuthenticated: req.session.isAuthenticated,
