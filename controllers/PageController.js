@@ -31,8 +31,8 @@ module.exports = {
   },
 
   getTopic: async (req, res) => {
-    const topicId = req.params.topicId;
-    const rawTopic = await Topic.findOne({ where: { id: topicId } });
+    const topicName = req.params.topicId;
+    const rawTopic = await Topic.findOne({ where: { id: topicName } });
     if (rawTopic) {
       const topic = rawTopic.get({ plain: true });
       res.render('partials/topic', { topic });
