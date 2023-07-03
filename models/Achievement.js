@@ -23,9 +23,12 @@ Achievement.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    topic_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    topic_id: {
+      type: DataTypes.UUID,
+      references: {
+        model: 'topics',
+        key: 'id',
+      },
     },
   },
   {

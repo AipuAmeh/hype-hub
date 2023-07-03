@@ -6,17 +6,17 @@ class Topic extends Model {}
 Topic.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
     },
     topicName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     user_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       references: {
         model: 'users',
         key: 'id',
@@ -29,7 +29,7 @@ Topic.init(
     modelName: 'Topic',
     indexes: [
       {
-        fields: ['topic_name'],
+        fields: ['id'],
       },
     ],
   }

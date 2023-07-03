@@ -1,11 +1,11 @@
 const Achievement = require('../models/Achievement');
 
-const fetchAchievementsByTopic = async topic_name => {
+const fetchAchievementsByTopic = async topic_id => {
   try {
     // * Query the database to fetch achievements for the specified topic
     const rawAchievements = await Achievement.findAll({
       where: {
-        topic_name: topic_name,
+        topic_id: topic_id,
       },
     });
     const achievements = rawAchievements.map(achievement =>

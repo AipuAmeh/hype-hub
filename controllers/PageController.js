@@ -4,10 +4,12 @@ const fetchAchievementsByTopic = require('../helpers/achievementsByTopic');
 
 module.exports = {
   getDashboard: async (req, res) => {
-    console.log('my get route');
-    const rawTopics = await Topic.findAll({});
+    const rawTopics = await Topic.findAll({
+      where: {
+        user_id: `${req.session.currentUser.id}`,
+      },
+    });
     const topics = rawTopics.map(topic => topic.get({ plain: true }));
-    console.log(topics);
     // * loop through each topic and get plain true
     res.render('dashboard', {
       welcomeMessage: `Welcome back to HypeHub ${req.session.currentUser.firstName}!`,
@@ -17,13 +19,13 @@ module.exports = {
   },
 
   postDashboard: async (req, res) => {
-    console.log('my post route');
+    const userId = `${req.session.currentUser.id}`;
     const newTopic = await Topic.create({
-      ...req.body,
+      user_id: userId,
+      topicName: req.body.topicName,
     });
     try {
       const topic = newTopic.get({ plain: true });
-      console.log(topic);
       res.status(201).render('dashboard', {
         topicName: topic.topicName,
       });
@@ -33,18 +35,20 @@ module.exports = {
   },
 
   getTopic: async (req, res) => {
-    const topicName = req.params.topicName;
-    const achievements = await fetchAchievementsByTopic(topicName);
-    console.log(achievements);
+    const topic = await Topic.findByPk(req.params.id);
+    const topicName = topic.topicName;
+    const topicId = req.params.id;
+    const achievements = await fetchAchievementsByTopic(topicId);
+    console.log(topic, topicName, topicId, achievements);
     res.render('topic', {
       topicName,
+      topicId,
       isAuthenticated: req.session.isAuthenticated,
       achievements,
     });
   },
 
   postAchievement: async (req, res) => {
-    console.log('my post route', req.body);
     try {
       const newAchievement = await Achievement.create({
         date: req.body.date,

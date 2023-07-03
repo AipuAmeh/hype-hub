@@ -1,5 +1,6 @@
 const newAchievementHandler = async event => {
   event.preventDefault();
+
   const topicName = document.querySelector('#achievementFormLabel').textContent;
   const date = document.querySelector('#date').value.trim();
   const subject = document.querySelector('#subject').value.trim();
