@@ -2,7 +2,6 @@ const newTopicHandler = async event => {
   event.preventDefault();
 
   const topicName = document.querySelector('#newListTitle').value.trim();
-  console.log(topicName);
   try {
     if (topicName) {
       const response = await fetch(`/api/dashboard`, {
