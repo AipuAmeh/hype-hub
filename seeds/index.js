@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 const sequelize = require('../db/config');
-const { User } = require('../models');
+const { User, Topic, Achievement } = require('../models');
 
 const userSeeds = require('./users.json');
 

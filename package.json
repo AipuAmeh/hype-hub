@@ -1,7 +1,7 @@
 {
-  "name": "project-2-template",
+  "name": "hype-hub",
   "version": "1.0.0",
-  "description": "starter template for project 2",
+  "description": "HypeHub web application",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
