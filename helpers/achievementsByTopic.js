@@ -1,5 +1,6 @@
 const Achievement = require('../models/Achievement');
 
+// * Used in 'getTopic' controller
 const fetchAchievementsByTopic = async topic_id => {
   try {
     // * Query the database to fetch achievements for the specified topic

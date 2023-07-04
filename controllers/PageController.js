@@ -3,6 +3,7 @@ const Achievement = require('../models/Achievement');
 const fetchAchievementsByTopic = require('../helpers/achievementsByTopic');
 
 module.exports = {
+  // *Dashboard controllers
   getDashboard: async (req, res) => {
     const rawTopics = await Topic.findAll({
       where: {
@@ -10,7 +11,6 @@ module.exports = {
       },
     });
     const topics = rawTopics.map(topic => topic.get({ plain: true }));
-    // * loop through each topic and get plain true
     res.render('dashboard', {
       welcomeMessage: `Welcome back to HypeHub ${req.session.currentUser.firstName}!`,
       isAuthenticated: req.session.isAuthenticated,
@@ -34,13 +34,12 @@ module.exports = {
     }
   },
 
+  // * Topic controllers
   getTopic: async (req, res) => {
     const topic = await Topic.findByPk(req.params.id);
     const topicName = topic.topicName;
     const topicId = req.params.id;
-    console.log('>>>> these >>>', topic, topicName);
     const achievements = await fetchAchievementsByTopic(topicId);
-    // console.log(topic, topicName, topicId, achievements);
     res.render('topic', {
       topicName,
       topicId,
@@ -52,7 +51,8 @@ module.exports = {
   postAchievement: async (req, res) => {
     const topic = await Topic.findAll({
       where: {
-        topicName: `${req.params.id}`,
+        user_id: `${req.session.currentUser.id}`,
+        topic_name: `${req.params.id}`,
       },
     });
     const topicId = topic[0].dataValues.id;
