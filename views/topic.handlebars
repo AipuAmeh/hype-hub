@@ -1,0 +1,104 @@
+<h1 class='text-center m-auto p-2 fw-bold'>{{topicName}}</h1>
+<div class='container text-center my-3'>
+  <!-- Button trigger modal -->
+  <button
+    type='button'
+    class='btn btn-primary'
+    data-bs-toggle='modal'
+    data-bs-target='#achievementForm'
+  >
+    Add an Achievement!
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class='modal fade'
+  id='achievementForm'
+  tabindex='-1'
+  aria-labelledby='achievementFormLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h1
+          class='modal-title fs-5'
+          id='achievementFormLabel'
+        >{{topicName}}</h1>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <form class='px-4 py-3 achievement-form'>
+          <div class='mb-3'>
+            <label for='date' class='form-label'>Date of achievement</label>
+            <input
+              type='text'
+              class='form-control'
+              id='date'
+              placeholder='xx/xx/xxxx'
+            />
+          </div>
+          <div class='mb-3'>
+            <label for='subject' class='form-label'>Subject</label>
+            <input
+              type='text'
+              class='form-control'
+              id='subject'
+              placeholder='Subject of achievement'
+            />
+          </div>
+          <div class='mb-3'>
+            <label for='description' class='form-label'>Description</label>
+            <textarea
+              class='form-control'
+              id='description'
+              placeholder='Achievement details'
+              rows='5'
+            ></textarea>
+          </div>
+          <button
+            type='submit'
+            class='btn btn-primary'
+            data-bs-dismiss='modal'
+            id='submitBtn'
+          >Add it!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Achievements -->
+<ul id='achievementContainer'>
+  {{#if achievements.length}}
+    {{#each achievements as |achievement|}}
+      <li>
+        <div class='card' style='width: 18rem;'>
+          <div class='card-body'>
+            <h5 class='card-title'>{{achievement.subject}}</h5>
+            <h6 class='card-subtitle mb-2 text-muted'>{{achievement.date}}</h6>
+            <p class='card-text'>{{achievement.description}}</p>
+          </div>
+        </div>
+      </li>
+    {{/each}}
+  {{else}}
+
+    <!-- Intro Card -->
+    <div class='card' id='intro' style='width: 18rem;'>
+      <div class='card-body'>
+        <h5 class='card-title'>Let's start the hype!</h5>
+        <p class='card-text'>Create achievements for this topic and celebrate
+          your growth!
+        </p>
+      </div>
+    </div>
+  {{/if}}
+</ul>
+<script src='/js/topic.js'></script>

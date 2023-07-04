@@ -12,6 +12,8 @@ body {
   border: none;
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
 
 .addNew-card {
   display: flex;
@@ -41,3 +43,4 @@ body {
 .pl-5 {
   padding-left: 25rem;
 }
+>>>>>>> 60badf97918971e9b3422160eee79daf2a6c148a
