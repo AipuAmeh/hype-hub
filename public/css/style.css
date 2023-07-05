@@ -3,8 +3,12 @@ body {
 }
 
 .logo-sm {
-  width: 50px;
-  height: 50px;
+  width: 90px;
+  height: 90px;
+}
+
+.navbar {
+  background-color: rgb(131, 131, 138);
 }
 
 .nav-btn {
@@ -12,6 +16,82 @@ body {
   border: none;
   cursor: pointer;
 }
+
+.large-text {
+  font-size: 6em;
+}
+
+body.body-homepage {
+  position: relative;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  object-fit: cover;
+  object-position: center;
+}
+.home-card {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.card-background {
+  padding: 20px;
+  background: #465261fb;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.login-body {
+  background-color: rgb(49, 65, 79);
+}
+
+.logo-login {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.rounded-extra {
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.register-body {
+  background-color: rgb(49, 65, 79);
+}
+
+.logo-register {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.addNew-card {
+  display: flex;
+  margin: 15rem 37rem;
+  flex: 0 1 300px;
+  padding: 5px;
+  width: 35%;
+  min-height: 100%;
+  min-width: 35%;
+}
+
 .topic-list {
   display: flex;
   flex-wrap: wrap;
@@ -34,4 +114,17 @@ body {
 
 #achievementContainer {
   list-style-type: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 6s;
 }
