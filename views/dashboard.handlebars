@@ -1,17 +1,19 @@
 <div><h1 class='text-center mt-5'>{{welcomeMessage}}</h1></div>
 
-<div class='addNew-card m-2'>
-
   <!-- Button trigger modal -->
+  <div class="text-center m-auto p-5">
   <button
     type='button submit'
-    class='btn btn-primary'
+    class='btn btn-primary row'
     data-bs-toggle='modal'
     data-bs-target='#topicForm'
   >
     Add New Topic
-  </button>
+  </button> 
+  </div>
 
+
+<div class='addNew-card container m-auto'>
   <!-- Modal -->
   <div
     class='modal fade'
@@ -23,7 +25,7 @@
     <div class='modal-dialog'>
       <div class='modal-content'>
         <div class='modal-header'>
-          <h1 class='modal-title fs-5' id='topicFormLabel'>Enter A Title For
+          <h1 class='modal-title fs-5' id='topicFormLabel'> Enter A Title For
             Your List</h1>
           <button
             type='button'
@@ -57,19 +59,21 @@
 <div class='container mt-5 my-auto w-auto' id='topic-container'>
   {{#if topics.length}}
     {{#each topics as |topic|}}
-      <a href='/topic/{{topic.id}}'>
-        <div class='row row-cols-1 row-cols-md-2 pl-5 topic-list'>
-          <div class='row mb-2'>
-            <div class='col'>
+     
+        {{!-- <div class='row'> --}}
+          <div class='col-4 col-md-5 col-lg-4 pl-5 mb-3 mx-4 topic-list '>
+            <div class='col-md'>
               <div class='card'>
+                 <a href='/topic/{{topic.id}}'>
                 <div class='pl-4 card-body'>
-                  <h5 class='card-title'>{{topic.topicName}}</h5>
+                  <h5 class='card-title text-center'>{{topic.topicName}}</h5>
                 </div>
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </a>
+        {{!-- </div> --}}
+      {{!-- </a> --}}
     {{/each}}
   {{else}}
 
