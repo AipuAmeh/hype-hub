@@ -3,8 +3,12 @@ body {
 }
 
 .logo-sm {
-  width: 50px;
-  height: 50px;
+  width: 90px;
+  height: 90px;
+}
+
+.navbar {
+  background-color: rgb(131, 131, 138);
 }
 
 .nav-btn {
@@ -54,6 +58,12 @@ body.body-homepage {
   background-color: rgb(49, 65, 79);
 }
 
+.logo-login {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .rounded-extra {
   border-radius: 30px;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
@@ -63,6 +73,13 @@ body.body-homepage {
 
 .register-body {
   background-color: rgb(49, 65, 79);
+}
+
+.logo-register {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .addNew-card {
