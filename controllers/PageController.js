@@ -34,6 +34,19 @@ module.exports = {
     }
   },
 
+  deleteTopic: async (req, res) => {
+    try {
+      const topic = await Topic.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.JSON(topic);
+    } catch (error) {
+      res.status(500).JSON(error);
+    }
+  },
+
   // * Topic controllers
   getTopic: async (req, res) => {
     const topic = await Topic.findByPk(req.params.id);
