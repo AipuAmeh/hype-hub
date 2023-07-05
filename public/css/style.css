@@ -82,6 +82,10 @@ body.body-homepage {
   object-fit: cover;
 }
 
+.dash-body {
+  background-color: rgb(49, 65, 79);
+}
+
 .addNew-card {
   display: flex;
   margin: 15rem 37rem;
@@ -121,5 +125,5 @@ body.body-homepage {
 }
 
 .fade-in {
-  animation: fadeIn 2s;
+  animation: fadeIn 8s;
 }
