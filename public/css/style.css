@@ -104,17 +104,25 @@ body.body-homepage {
   font-size: x-large;
 }
 
-/* .pl-4 {
-  padding-left: 5rem;
-} */
-
-/* .pl-5 {
-  padding-left: 25rem;
-} */
-
-#achievementContainer {
-  list-style-type: none;
+.card-body {
+  background-color: rgb(131, 131, 138);
+  color: white;
+  text-decoration: none;
 }
+
+.list-group-item {
+  background-color: #eeeeee;
+}
+
+.topic-card-title, 
+a{
+text-decoration: none;
+}
+
+.card-subtitle {
+  color: black;
+}
+
 
 @keyframes fadeIn {
   0% {

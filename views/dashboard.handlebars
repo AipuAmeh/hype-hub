@@ -56,24 +56,20 @@
 </div>
 
 <!-- Topics -->
-<div class='container mt-5 my-auto w-auto' id='topic-container'>
+<div class='container mt-5 my-auto mx-auto' id='topic-container'>
   {{#if topics.length}}
     {{#each topics as |topic|}}
-     
-        {{!-- <div class='row'> --}}
-          <div class='col-4 col-md-5 col-lg-4 pl-5 mb-3 mx-4 topic-list '>
-            <div class='col-md'>
-              <div class='card'>
+          <div class='col-4 col-md-5 col-lg-4 pl-5 mb-3 mx-auto topic-list '>
+            <div class='col-md '>
+              <div class='card mx-auto' style='width: 18rem'>
                  <a href='/topic/{{topic.id}}'>
                 <div class='pl-4 card-body'>
-                  <h5 class='card-title text-center'>{{topic.topicName}}</h5>
+                  <h5 class='topic-card-title text-center'>{{topic.topicName}}</h5>
                 </div>
                 </a>
               </div>
             </div>
           </div>
-        {{!-- </div> --}}
-      {{!-- </a> --}}
     {{/each}}
   {{else}}
 
