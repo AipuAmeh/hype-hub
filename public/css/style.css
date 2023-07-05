@@ -50,6 +50,14 @@ body.body-homepage {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.login-body {
+  background-color: rgb(49, 65, 79);
+}
+
+.register-body {
+  background-color: rgb(49, 65, 79);
+}
+
 .addNew-card {
   display: flex;
   margin: 15rem 37rem;
