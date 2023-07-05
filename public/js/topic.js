@@ -33,15 +33,23 @@ const addAchievementToPage = achievement => {
   if (container) {
     container.insertAdjacentHTML(
       'afterbegin',
-      `  <li>
-        <div class='card' style='width: 18rem;'>
-          <div class='card-body'>
-            <h5 class='card-title'>${achievement.subject}</h5>
-            <h6 class='card-subtitle mb-2 text-muted'>${achievement.date}</h6>
-            <p class='card-text'>${achievement.description}</p>
-          </div>
+      ` <li>
+      <div class='card' style='width: 18rem;'>
+        <div class='card-header'>
+          <h5 class='card-title'>${achievement.subject}</h5>
+          <button
+            type='button'
+            class='btn-close'
+            id='${achievement.id}'
+            aria-label='Close'
+          ></button>
         </div>
-      </li>`
+        <div class='card-body'>
+          <h6 class='card-subtitle mb-2 text-muted'>${achievement.date}</h6>
+          <p class='card-text'>${achievement.description}</p>
+        </div>
+      </div>
+    </li>`
     );
   }
 };
