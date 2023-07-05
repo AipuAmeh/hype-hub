@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const Topic = require('../models/Topic');
 const Achievement = require('../models/Achievement');
 const fetchAchievementsByTopic = require('../helpers/achievementsByTopic');
@@ -41,17 +42,23 @@ module.exports = {
           id: req.params.id,
         },
       });
-      res.status(200).JSON(topic);
+      res.status(200).json(topic);
     } catch (error) {
-      res.status(500).JSON(error);
+      console.log(error);
+      res.status(500);
     }
   },
 
   // * Topic controllers
   getTopic: async (req, res) => {
-    const topic = await Topic.findByPk(req.params.id);
+    const topic = await Topic.findOne({
+      where: {
+        topicName: req.params.topicName,
+        user_id: req.session.currentUser.id,
+      },
+    });
     const topicName = topic.topicName;
-    const topicId = req.params.id;
+    const topicId = topic.id;
     const achievements = await fetchAchievementsByTopic(topicId);
     res.render('topic', {
       topicName,
@@ -62,13 +69,14 @@ module.exports = {
   },
 
   postAchievement: async (req, res) => {
-    const topic = await Topic.findAll({
+    const topic = await Topic.findOne({
       where: {
-        user_id: `${req.session.currentUser.id}`,
-        topic_name: `${req.params.id}`,
+        topic_name: req.params.topicName,
+        user_id: req.session.currentUser.id,
       },
     });
-    const topicId = topic[0].dataValues.id;
+    console.log('>>>> topic >>>>', topic);
+    const topicId = topic.dataValues.id;
     try {
       const newAchievement = await Achievement.create({
         date: req.body.date,
@@ -96,9 +104,10 @@ module.exports = {
           id: req.params.id,
         },
       });
-      res.status(200).JSON(achievement);
+      res.status(200).json(achievement);
     } catch (error) {
-      res.status(500).JSON(error);
+      console.log(error);
+      res.status(500);
     }
   },
 };

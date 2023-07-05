@@ -26,9 +26,9 @@ const newTopicHandler = async event => {
 const deleteTopicHandler = async event => {
   event.preventDefault();
 
-  const topicToDelete = document.querySelector('#deleteTopic').value.trim();
+  const topicId = event.target.getAttribute('data-topic-id');
   try {
-    const response = await fetch(`/api/dashboard/${topicToDelete}`, {
+    const response = await fetch(`/api/dashboard/${topicId}`, {
       method: 'DELETE',
     });
     if (response.ok) {
@@ -45,6 +45,9 @@ document
   .querySelector('#savedTitle')
   .addEventListener('click', newTopicHandler);
 
-document
-  .querySelector('#deleteTopic')
-  .addEventListener('click', deleteTopicHandler);
+document.addEventListener('DOMContentLoaded', () => {
+  const deleteTopicBtns = document.querySelectorAll('.deleteTopic');
+  deleteTopicBtns.forEach(deleteTopicBtn => {
+    deleteTopicBtn.addEventListener('click', deleteTopicHandler);
+  });
+});
