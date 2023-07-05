@@ -3,7 +3,6 @@ const { UserController, PageController } = require('../../controllers');
 
 const isAuthenticated = require('../../middleware/isAuthenticated');
 
-// Existing routes
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);
 router.post('/logout', isAuthenticated, UserController.logout);

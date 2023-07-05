@@ -7,8 +7,7 @@
     "dev": "nodemon server.js",
     "seed": "node seeds",
     "lint": "eslint --fix --ext .js .",
-    "test": "test",
-    "start": "node server.js"
+    "test": "test"
   },
   "author": "",
   "license": "ISC",
@@ -29,14 +28,5 @@
     "eslint-plugin-prettier": "^4.2.1",
     "nodemon": "^2.0.20",
     "prettier": "2.8.8"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/erikbenedict/hype-hub.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/erikbenedict/hype-hub/issues"
-  },
-  "homepage": "https://github.com/erikbenedict/hype-hub#readme"
+  }
 }
