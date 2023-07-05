@@ -8,7 +8,6 @@ const newAchievementHandler = async event => {
   try {
     if (date && subject && description && topicName) {
       const achievement = { date, subject, description, topicName };
-      console.log('>>>> achievement >>>>', achievement);
       const response = await fetch(`/api/topic/${topicName}`, {
         method: 'POST',
         body: JSON.stringify(achievement),
@@ -30,11 +29,13 @@ const newAchievementHandler = async event => {
 const deleteAchievementHandler = async event => {
   event.preventDefault();
 
+  const topicId = document
+    .querySelector('#achievementFormLabel')
+    .getAttribute('data-topic-id');
   const topicName = document.querySelector('#achievementFormLabel').textContent;
   const achievementId = event.target.getAttribute('data-achievement-id');
-  console.log('>>>>>>>> achievementId >>>>>>>', achievementId);
   try {
-    const response = await fetch(`/api/topic/${topicName}/${achievementId}`, {
+    const response = await fetch(`/api/topic/${topicId}/${achievementId}`, {
       method: 'DELETE',
     });
     if (response.ok) {

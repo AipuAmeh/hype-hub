@@ -75,7 +75,6 @@ module.exports = {
         user_id: req.session.currentUser.id,
       },
     });
-    console.log('>>>> topic >>>>', topic);
     const topicId = topic.dataValues.id;
     try {
       const newAchievement = await Achievement.create({

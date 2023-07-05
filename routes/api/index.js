@@ -9,6 +9,6 @@ router.post('/dashboard', PageController.postDashboard);
 router.post('/topic/:topicName', PageController.postAchievement);
 
 router.delete('/dashboard/:id', PageController.deleteTopic);
-router.delete('/topic/topicName/:id', PageController.deleteAchievement);
+router.delete('/topic/:id/:id', PageController.deleteAchievement);
 
 module.exports = router;
