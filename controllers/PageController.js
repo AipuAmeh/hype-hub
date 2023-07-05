@@ -88,4 +88,17 @@ module.exports = {
       res.status(500);
     }
   },
+
+  deleteAchievement: async (req, res) => {
+    try {
+      const achievement = await Achievement.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.status(200).JSON(achievement);
+    } catch (error) {
+      res.status(500).JSON(error);
+    }
+  },
 };
