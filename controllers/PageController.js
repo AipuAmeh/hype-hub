@@ -41,7 +41,7 @@ module.exports = {
           id: req.params.id,
         },
       });
-      res.JSON(topic);
+      res.status(200).JSON(topic);
     } catch (error) {
       res.status(500).JSON(error);
     }
