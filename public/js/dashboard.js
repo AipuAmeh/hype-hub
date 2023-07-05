@@ -26,7 +26,7 @@ const newTopicHandler = async event => {
 const deleteTopicHandler = async event => {
   event.preventDefault();
 
-  const topicToDelete = document.querySelector('#deleteBtn').value.trim();
+  const topicToDelete = document.querySelector('#deleteTopic').value.trim();
   try {
     const response = await fetch(`/api/dashboard/${topicToDelete}`, {
       method: 'DELETE',
@@ -46,5 +46,5 @@ document
   .addEventListener('click', newTopicHandler);
 
 document
-  .querySelector('#deleteBtn')
+  .querySelector('#deleteTopic')
   .addEventListener('click', deleteTopicHandler);
