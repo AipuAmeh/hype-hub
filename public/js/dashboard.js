@@ -26,18 +26,20 @@ const newTopicHandler = async event => {
 const deleteTopicHandler = async event => {
   event.preventDefault();
 
-  const topicId = event.target.getAttribute('data-topic-id');
-  try {
-    const response = await fetch(`/api/dashboard/${topicId}`, {
-      method: 'DELETE',
-    });
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to delete topic');
+  if (window.confirm('Are you sure you want to delete this Topic?')) {
+    const topicId = event.target.getAttribute('data-topic-id');
+    try {
+      const response = await fetch(`/api/dashboard/${topicId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to delete topic');
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
   }
 };
 

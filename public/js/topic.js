@@ -29,22 +29,26 @@ const newAchievementHandler = async event => {
 const deleteAchievementHandler = async event => {
   event.preventDefault();
 
-  const topicId = document
-    .querySelector('#achievementFormLabel')
-    .getAttribute('data-topic-id');
-  const topicName = document.querySelector('#achievementFormLabel').textContent;
-  const achievementId = event.target.getAttribute('data-achievement-id');
-  try {
-    const response = await fetch(`/api/topic/${topicId}/${achievementId}`, {
-      method: 'DELETE',
-    });
-    if (response.ok) {
-      document.location.replace(`/topic/${topicName}`);
-    } else {
-      alert('Failed to delete achievement');
+  if (window.confirm('Are you sure you want to delete this Topic?')) {
+    const topicId = document
+      .querySelector('#achievementFormLabel')
+      .getAttribute('data-topic-id');
+    const topicName = document.querySelector(
+      '#achievementFormLabel'
+    ).textContent;
+    const achievementId = event.target.getAttribute('data-achievement-id');
+    try {
+      const response = await fetch(`/api/topic/${topicId}/${achievementId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        document.location.replace(`/topic/${topicName}`);
+      } else {
+        alert('Failed to delete achievement');
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
   }
 };
 
