@@ -53,6 +53,7 @@ const removeIntro = () => {
 document
   .querySelector('.achievement-form')
   .addEventListener('submit', newAchievementHandler);
+
 // Extract the topicId from the URL
 const urlPath = window.location.pathname;
 const pathSegments = urlPath.split('/');
