@@ -1,10 +1,10 @@
 const newAchievementHandler = async event => {
   event.preventDefault();
-
   const topicName = document.querySelector('#achievementFormLabel').textContent;
   const date = document.querySelector('#date').value.trim();
   const subject = document.querySelector('#subject').value.trim();
   const description = document.querySelector('#description').value.trim();
+
   try {
     if (date && subject && description && topicName) {
       const achievement = { date, subject, description, topicName };
@@ -16,8 +16,7 @@ const newAchievementHandler = async event => {
         },
       });
       if (response.ok) {
-        addAchievementToPage(achievement);
-        removeIntro();
+        document.location.replace(`/topic/${topicName}`);
       } else {
         alert('Failed to create achievement');
       }
@@ -27,29 +26,39 @@ const newAchievementHandler = async event => {
   }
 };
 
-const addAchievementToPage = achievement => {
-  const container = document.querySelector('#achievementContainer');
-  if (container) {
-    container.insertAdjacentHTML(
-      'afterbegin',
-      `  <li>
-        <div class='card' style='width: 18rem;'>
-          <div class='card-body'>
-            <h5 class='card-title'>${achievement.subject}</h5>
-            <h6 class='card-subtitle mb-2 text-muted'>${achievement.date}</h6>
-            <p class='card-text'>${achievement.description}</p>
-          </div>
-        </div>
-      </li>`
-    );
-  }
-};
+const deleteAchievementHandler = async event => {
+  event.preventDefault();
 
-const removeIntro = () => {
-  const intro = document.querySelector('#intro');
-  if (intro) intro.remove();
+  if (window.confirm('Are you sure you want to delete this Topic?')) {
+    const topicId = document
+      .querySelector('#achievementFormLabel')
+      .getAttribute('data-topic-id');
+    const topicName = document.querySelector(
+      '#achievementFormLabel'
+    ).textContent;
+    const achievementId = event.target.getAttribute('data-achievement-id');
+    try {
+      const response = await fetch(`/api/topic/${topicId}/${achievementId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        document.location.replace(`/topic/${topicName}`);
+      } else {
+        alert('Failed to delete achievement');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 };
 
 document
   .querySelector('.achievement-form')
   .addEventListener('submit', newAchievementHandler);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const deleteAchievementBtns = document.querySelectorAll('.deleteAchievement');
+  deleteAchievementBtns.forEach(deleteAchievementBtn => {
+    deleteAchievementBtn.addEventListener('click', deleteAchievementHandler);
+  });
+});

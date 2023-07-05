@@ -62,9 +62,15 @@
           <div class='col-4 col-md-5 col-lg-4 pl-5 mb-3 mx-auto topic-list '>
             <div class='col-md '>
               <div class='card mx-auto' style='width: 18rem'>
-                 <a href='/topic/{{topic.id}}'>
-                <div class='pl-4 card-body'>
+                 <a href='/topic/{{topic.topicName}}'>
+                <div class='pl-4 card-body d-flex justify-content-between'>
                   <h5 class='topic-card-title text-center'>{{topic.topicName}}</h5>
+                  <button
+                    type='button'
+                    class='btn-close deleteTopic'
+                    data-topic-id={{topic.id}}
+                    aria-label='Close'
+                  ></button>
                 </div>
                 </a>
               </div>
