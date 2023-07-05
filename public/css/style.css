@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(35, 37, 59);
+  background-color: #eeeeee;
 }
 
 .logo-sm {
@@ -12,12 +12,8 @@ body {
   border: none;
   cursor: pointer;
 }
-
-.home-card {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px !important;
-}
+<<<<<<< HEAD
+=======
 
 .addNew-card {
   display: flex;
@@ -47,3 +43,4 @@ body {
 .pl-5 {
   padding-left: 25rem;
 }
+>>>>>>> 60badf97918971e9b3422160eee79daf2a6c148a
