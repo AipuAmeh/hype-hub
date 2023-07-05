@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>{{topic.topicName}}</title>
+  </head>
+  <body>
+    <h1>{{topic.topicName}}</h1>
+
+    {{#if topic.description}}
+      <h2>Description</h2>
+      <p>{{topic.description}}</p>
+    {{/if}}
+
+    <!--card form -->
+    <div class='container'>
+      <h2 class='mt-5'>Fill Out Your Card!</h2>
+
+      <form id='card-form'>
+        <div class='form-group'>
+          <label for='cardTitle'>Card Title</label>
+          <input
+            type='text'
+            id='cardTitle'
+            class="'form-control"
+            placeholder='Enter Card Title'
+          />
+        </div>
+
+        <div class='form-group'>
+          <label for='cardcontent'>Card Content</label>
+          <textarea
+            id='cardContent'
+            class='form-control'
+            placeholder='Enter Card Content'
+          ></textarea>
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Submit</button>
+      </form>
+    </div>
+
+    {{#if topic.posts}}
+      <h2>Posts</h2>
+      <ul>
+        {{#each topic.posts as |post|}}
+          <li>
+            <h3>{{post.title}}</h3>
+            <p>{{post.content}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    <!-- Navigation -->
+    <a href='/dashboard'>Back to Dashboard</a>
+
+    <script src="'js/topic.js"></script>
+  </body>
+</html>
