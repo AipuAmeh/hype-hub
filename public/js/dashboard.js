@@ -23,6 +23,33 @@ const newTopicHandler = async event => {
   }
 };
 
+const deleteTopicHandler = async event => {
+  event.preventDefault();
+
+  if (window.confirm('Are you sure you want to delete this Topic?')) {
+    const topicId = event.target.getAttribute('data-topic-id');
+    try {
+      const response = await fetch(`/api/dashboard/${topicId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to delete topic');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
+
 document
   .querySelector('#savedTitle')
   .addEventListener('click', newTopicHandler);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const deleteTopicBtns = document.querySelectorAll('.deleteTopic');
+  deleteTopicBtns.forEach(deleteTopicBtn => {
+    deleteTopicBtn.addEventListener('click', deleteTopicHandler);
+  });
+});

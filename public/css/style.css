@@ -17,8 +17,8 @@ body {
   cursor: pointer;
 }
 
-.large-text {
-  font-size: 6em;
+.custom-size {
+  font-size: 4em;
 }
 
 body.body-homepage {
@@ -122,4 +122,13 @@ body.body-homepage {
 
 .fade-in {
   animation: fadeIn 6s;
+}
+
+/* ****** Media Queries ****** */
+
+/* * Media query for medium screens */
+@media (min-width: 768px) {
+  .custom-size {
+    font-size: 6em;
+  }
 }
