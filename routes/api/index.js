@@ -5,7 +5,7 @@ const isAuthenticated = require('../../middleware/isAuthenticated');
 router.post('/register', UserController.register);
 router.post('/login', UserController.login);
 router.post('/logout', isAuthenticated, UserController.logout);
-router.post('/dashboard', PageController.postDashboard);
+router.post('/dashboard', PageController.postTopic);
 router.post('/topic/:topicName', PageController.postAchievement);
 
 router.delete('/dashboard/:id', PageController.deleteTopic);

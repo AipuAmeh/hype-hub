@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 const Topic = require('../models/Topic');
 const Achievement = require('../models/Achievement');
-const fetchAchievementsByTopic = require('../helpers/achievementsByTopic');
 
 module.exports = {
   // *Dashboard controllers
@@ -19,7 +18,7 @@ module.exports = {
     });
   },
 
-  postDashboard: async (req, res) => {
+  postTopic: async (req, res) => {
     const userId = `${req.session.currentUser.id}`;
     const newTopic = await Topic.create({
       user_id: userId,
