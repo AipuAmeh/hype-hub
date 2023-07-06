@@ -1,5 +1,5 @@
 body {
-  background-color: #eeeeee;
+  background-color: #32414F;
 }
 
 .logo-sm {
@@ -122,6 +122,7 @@ text-decoration: none;
 .card-subtitle {
   color: black;
 }
+
 
 
 @keyframes fadeIn {
