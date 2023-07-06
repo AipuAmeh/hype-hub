@@ -23,6 +23,10 @@ Achievement.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    img_url: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     topic_id: {
       type: DataTypes.UUID,
       references: {

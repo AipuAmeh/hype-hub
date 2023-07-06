@@ -103,6 +103,16 @@ body.body-homepage {
   font-size: x-large;
 }
 
+#preview-img {
+  width: 100%;
+  max-width: 50px;
+}
+
+#achievement-img {
+  width:100%;
+  max-width: 500px;
+}
+
 .pl-4 {
   padding-left: 5rem;
 }

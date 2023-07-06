@@ -51,15 +51,19 @@ module.exports = {
 
   // * Topic controllers
   getTopic: async (req, res) => {
-    const topic = await Topic.findOne({
+    console.log(req.params);
+    const rawTopic = await Topic.findOne({
       where: {
         topicName: req.params.topicName,
         user_id: req.session.currentUser.id,
       },
+    include: [{model:Achievement}]
     });
+    const topic = rawTopic.get({plain: true});
+    console.log(topic);
     const topicName = topic.topicName;
     const topicId = topic.id;
-    const achievements = await fetchAchievementsByTopic(topicId);
+    const achievements = topic.Achievements;
     res.render('topic', {
       topicName,
       topicId,
@@ -81,6 +85,7 @@ module.exports = {
         date: req.body.date,
         subject: req.body.subject,
         description: req.body.description,
+        img_url: req.body.imgUrl,
         topic_id: topicId,
       });
       const achievement = newAchievement.get({ plain: true });
@@ -88,6 +93,7 @@ module.exports = {
         date: achievement.date,
         subject: achievement.subject,
         description: achievement.description,
+        img_url: achievement.imgUrl,
         topic_id: achievement.topic_id,
       });
     } catch (error) {
