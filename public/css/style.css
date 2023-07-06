@@ -1,5 +1,5 @@
 body {
-  background-color: #32414F;
+  background-color: #32414f;
 }
 
 .logo-sm {
@@ -100,7 +100,7 @@ body.body-homepage {
   max-width: 100%;
 }
 
-.btn-primary {
+.btn-info {
   font-size: x-large;
 }
 
@@ -110,30 +110,28 @@ body.body-homepage {
 }
 
 #achievement-img {
-  width:100%;
+  width: 100%;
   max-width: 500px;
 }
 
 .card-body {
-  background-color: rgb(131, 131, 138);
+  background-color: rgb(114, 114, 120);
   color: white;
   text-decoration: none;
 }
 
 .list-group-item {
-  background-color:#32414F;
+  background-color: #32414f;
 }
 
-.topic-card-title, 
-a{
-text-decoration: none;
+.topic-card-title,
+a {
+  text-decoration: none;
 }
 
 .card-subtitle {
   color: black;
 }
-
-
 
 @keyframes fadeIn {
   0% {

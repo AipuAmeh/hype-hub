@@ -1,17 +1,16 @@
-<div><h1 class='text-center mt-5 text-white' >{{welcomeMessage}}</h1></div>
+<div><h1 class='text-center mt-5 text-white'>{{welcomeMessage}}</h1></div>
 
-  <!-- Button trigger modal -->
-  <div class="text-center m-auto p-5">
+<!-- Button trigger modal -->
+<div class='text-center m-auto p-5'>
   <button
     type='button submit'
-    class='btn btn-primary row'
+    class='btn btn-info row'
     data-bs-toggle='modal'
     data-bs-target='#topicForm'
   >
     Add New Topic
-  </button> 
-  </div>
-
+  </button>
+</div>
 
 <div class='addNew-card container m-auto'>
   <!-- Modal -->
@@ -25,8 +24,8 @@
     <div class='modal-dialog'>
       <div class='modal-content'>
         <div class='modal-header'>
-          <h1 class='modal-title fs-5' id='topicFormLabel'> Enter A Title For
-            Your Topic</h1>
+          <h1 class='modal-title fs-5' id='topicFormLabel'>
+            Enter A Title For Your Topic</h1>
           <button
             type='button'
             class='btn-close'
@@ -59,23 +58,25 @@
 <div class='container mt-5 my-auto mx-auto' id='topic-container'>
   {{#if topics.length}}
     {{#each topics as |topic|}}
-          <div class='col-4 col-md-5 col-lg-4 pl-5 mb-3 mx-auto topic-list '>
-            <div class='col-md '>
-              <div class='card mx-auto' style='width: 18rem'>
-                 <a href='/topic/{{topic.topicName}}'>
-                <div class='pl-4 card-body d-flex justify-content-between'>
-                  <h5 class='topic-card-title text-center'>{{topic.topicName}}</h5>
-                  <button
-                    type='button'
-                    class='btn-close deleteTopic'
-                    data-topic-id={{topic.id}}
-                    aria-label='Close'
-                  ></button>
-                </div>
-                </a>
+      <div class='col-4 col-md-5 col-lg-4 pl-5 mb-3 mx-auto topic-list'>
+        <div class='col-md'>
+          <div class='card mx-auto' style='width: 18rem'>
+            <a href='/topic/{{topic.topicName}}'>
+              <div class='pl-4 card-body d-flex justify-content-between'>
+                <h5
+                  class='topic-card-title text-center'
+                >{{topic.topicName}}</h5>
+                <button
+                  type='button'
+                  class='btn-close deleteTopic'
+                  data-topic-id={{topic.id}}
+                  aria-label='Close'
+                ></button>
               </div>
-            </div>
+            </a>
           </div>
+        </div>
+      </div>
     {{/each}}
   {{else}}
 
