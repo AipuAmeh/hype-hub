@@ -1,5 +1,5 @@
 body {
-  background-color: #eeeeee;
+  background-color: #32414F;
 }
 
 .logo-sm {
@@ -97,19 +97,33 @@ body.body-homepage {
   flex-wrap: wrap;
   position: relative;
   bottom: 6rem;
+  max-width: 100%;
 }
 
 .btn-primary {
   font-size: x-large;
 }
 
-.pl-4 {
-  padding-left: 5rem;
+.card-body {
+  background-color: rgb(131, 131, 138);
+  color: white;
+  text-decoration: none;
 }
 
-.pl-5 {
-  padding-left: 25rem;
+.list-group-item {
+  background-color: #eeeeee;
 }
+
+.topic-card-title, 
+a{
+text-decoration: none;
+}
+
+.card-subtitle {
+  color: black;
+}
+
+
 
 @keyframes fadeIn {
   0% {

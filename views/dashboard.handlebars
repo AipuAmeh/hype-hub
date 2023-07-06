@@ -1,17 +1,19 @@
-<div><h1 class='text-center mt-5'>{{welcomeMessage}}</h1></div>
-
-<div class='addNew-card m-2'>
+<div><h1 class='text-center mt-5 text-white' >{{welcomeMessage}}</h1></div>
 
   <!-- Button trigger modal -->
+  <div class="text-center m-auto p-5">
   <button
     type='button submit'
-    class='btn btn-primary'
+    class='btn btn-primary row'
     data-bs-toggle='modal'
     data-bs-target='#topicForm'
   >
     Add New Topic
-  </button>
+  </button> 
+  </div>
 
+
+<div class='addNew-card container m-auto'>
   <!-- Modal -->
   <div
     class='modal fade'
@@ -23,7 +25,7 @@
     <div class='modal-dialog'>
       <div class='modal-content'>
         <div class='modal-header'>
-          <h1 class='modal-title fs-5' id='topicFormLabel'>Enter A Title For
+          <h1 class='modal-title fs-5' id='topicFormLabel'> Enter A Title For
             Your List</h1>
           <button
             type='button'
@@ -54,16 +56,15 @@
 </div>
 
 <!-- Topics -->
-<div class='container mt-5 my-auto w-auto' id='topic-container'>
+<div class='container mt-5 my-auto mx-auto' id='topic-container'>
   {{#if topics.length}}
     {{#each topics as |topic|}}
-      <a href='/topic/{{topic.topicName}}'>
-        <div class='row row-cols-1 row-cols-md-2 pl-5 topic-list'>
-          <div class='row mb-2'>
-            <div class='col'>
-              <div class='card'>
+          <div class='col-4 col-md-5 col-lg-4 pl-5 mb-3 mx-auto topic-list '>
+            <div class='col-md '>
+              <div class='card mx-auto' style='width: 18rem'>
+                 <a href='/topic/{{topic.topicName}}'>
                 <div class='pl-4 card-body d-flex justify-content-between'>
-                  <h5 class='card-title'>{{topic.topicName}}</h5>
+                  <h5 class='topic-card-title text-center'>{{topic.topicName}}</h5>
                   <button
                     type='button'
                     class='btn-close deleteTopic'
@@ -71,16 +72,15 @@
                     aria-label='Close'
                   ></button>
                 </div>
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </a>
     {{/each}}
   {{else}}
 
     <!-- Intro Card -->
-    <div class='card' id='intro' style='width: 18rem;'>
+    <div class='card mx-auto' id='intro' style='width: 18rem;'>
       <div class='card-body'>
         <h5 class='card-title'>Let's start the hype!</h5>
         <p class='card-text'>Create Topics that you want to add achievements
