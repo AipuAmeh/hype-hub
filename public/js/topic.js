@@ -5,12 +5,11 @@ const newAchievementHandler = async event => {
   const subject = document.querySelector('#subject').value.trim();
   const description = document.querySelector('#description').value.trim();
   const imgUrl = document.querySelector('#preview-img').getAttribute('src');
-   
 
   try {
     if (date && subject && description && topicName) {
       console.log(imgUrl);
-      const achievement = { date, subject, description, topicName, imgUrl, };
+      const achievement = { date, subject, description, topicName, imgUrl };
       const response = await fetch(`/api/topic/${topicName}`, {
         method: 'POST',
         body: JSON.stringify(achievement),
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-//Cloudinary code
+// * Cloudinary code
 
 const fileUpload = document.getElementById('file-upload');
 
@@ -74,27 +73,26 @@ const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dhdvifkrn/upload';
 const CLOUDINARY_UPLOAD_PRESET = 'bh7znkdp';
 
 const previewImg = document.getElementById('preview-img');
-const attachedImg = document.getElementById('achievement-img');
 
-fileUpload.addEventListener('change', function(event) {
+fileUpload.addEventListener('change', function (event) {
   const file = event.target.files[0];
   let formData = new FormData();
-  formData.append('file', file)
+  formData.append('file', file);
   formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
+  // eslint-disable-next-line no-undef
   axios({
     url: CLOUDINARY_URL,
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www.form.urlencoded'
+      'Content-Type': 'application/x-www.form.urlencoded',
     },
-    data: formData
-  }).then(function(res) {
-    console.log(res);
-    console.log(res.data.secure_url);
-    previewImg.src = res.data.secure_url;
-  }).catch(function(err) {
-    console.error(err);
-  });
-
+    data: formData,
+  })
+    .then(function (res) {
+      previewImg.src = res.data.secure_url;
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
 });

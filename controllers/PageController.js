@@ -51,16 +51,14 @@ module.exports = {
 
   // * Topic controllers
   getTopic: async (req, res) => {
-    console.log(req.params);
     const rawTopic = await Topic.findOne({
       where: {
         topicName: req.params.topicName,
         user_id: req.session.currentUser.id,
       },
-    include: [{model:Achievement}]
+      include: [{ model: Achievement }],
     });
-    const topic = rawTopic.get({plain: true});
-    console.log(topic);
+    const topic = rawTopic.get({ plain: true });
     const topicName = topic.topicName;
     const topicId = topic.id;
     const achievements = topic.Achievements;
