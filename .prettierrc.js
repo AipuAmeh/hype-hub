@@ -1,10 +1,10 @@
 module.exports = {
-  arrowParens: "avoid",
-  trailingComma: "es5",
+  arrowParens: 'avoid',
+  trailingComma: 'es5',
   singleQuote: true,
   quote: 'single',
-  endOfLine: "auto",
+  endOfLine: 'auto',
   tabWidth: 2,
   useTabs: false,
-  quoteProps: "as-needed",
+  quoteProps: 'as-needed',
 };
