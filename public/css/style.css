@@ -104,6 +104,16 @@ body.body-homepage {
   font-size: x-large;
 }
 
+#preview-img {
+  width: 100%;
+  max-width: 50px;
+}
+
+#achievement-img {
+  width:100%;
+  max-width: 500px;
+}
+
 .card-body {
   background-color: rgb(131, 131, 138);
   color: white;

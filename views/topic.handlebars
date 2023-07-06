@@ -62,6 +62,21 @@
               placeholder='Achievement details'
               rows='10'
             ></textarea>
+            <div class='mb-3'>
+              <label class='file-upload-container' for='file-upload'>
+                Add a photo related to your achievement:
+                <input id='file-upload' type='file' />
+              </label>
+            </div>
+            <div id='preview-div'>
+              <img
+                src=''
+                alt='Image preview'
+                class='mb-3'
+                id='preview-img'
+                {{! onerror="this.style.display='none'" }}
+              />
+            </div>
           </div>
           <button
             type='submit'
@@ -100,6 +115,9 @@
                 class='card-subtitle mb-2 text-black'
               >{{achievement.date}}</h6>
               <p class='card-text'>{{achievement.description}}</p>
+              {{#if achievement.img_url}}
+                <img src='{{achievement.img_url}}' class='card-img-bottom' />
+              {{/if}}
             </div>
           </div>
         </li>
@@ -118,4 +136,5 @@
     {{/if}}
   </ul>
 </div>
+
 <script src='/js/topic.js'></script>
