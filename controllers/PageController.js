@@ -87,7 +87,7 @@ module.exports = {
         date: req.body.date,
         subject: req.body.subject,
         description: req.body.description,
-        img_url: req.body.imgUrl,
+        img_url: req.body.imgUrl === '' ? null : req.body.imgUrl,
         topic_id: topicId,
       });
       const achievement = newAchievement.get({ plain: true });
