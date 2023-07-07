@@ -64,8 +64,8 @@ module.exports = {
     res.render('topic', {
       topicName,
       topicId,
-      isAuthenticated: req.session.isAuthenticated,
       achievements,
+      isAuthenticated: req.session.isAuthenticated,
     });
   },
 
