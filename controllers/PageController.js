@@ -50,23 +50,28 @@ module.exports = {
 
   // * Topic controllers
   getTopic: async (req, res) => {
-    const rawTopic = await Topic.findOne({
-      where: {
-        topicName: req.params.topicName,
-        user_id: req.session.currentUser.id,
-      },
-      include: [{ model: Achievement }],
-    });
-    const topic = rawTopic.get({ plain: true });
-    const topicName = topic.topicName;
-    const topicId = topic.id;
-    const achievements = topic.Achievements;
-    res.render('topic', {
-      topicName,
-      topicId,
-      achievements,
-      isAuthenticated: req.session.isAuthenticated,
-    });
+    try {
+      const rawTopic = await Topic.findOne({
+        where: {
+          topicName: req.params.topicName,
+          user_id: req.session.currentUser.id,
+        },
+        include: [{ model: Achievement }],
+      });
+      const topic = rawTopic.get({ plain: true });
+      const topicName = topic.topicName;
+      const topicId = topic.id;
+      const achievements = topic.Achievements;
+      res.render('topic', {
+        topicName,
+        topicId,
+        achievements,
+        isAuthenticated: req.session.isAuthenticated,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500);
+    }
   },
 
   postAchievement: async (req, res) => {
