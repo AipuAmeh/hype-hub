@@ -68,13 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // * Cloudinary code
 
 const fileUpload = document.getElementById('file-upload');
-
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dhdvifkrn/upload';
 const CLOUDINARY_UPLOAD_PRESET = 'bh7znkdp';
-
 const previewImg = document.getElementById('preview-img');
 
-fileUpload.addEventListener('change', function (event) {
+fileUpload.addEventListener('change', async function (event) {
   const file = event.target.files[0];
   let formData = new FormData();
   formData.append('file', file);
