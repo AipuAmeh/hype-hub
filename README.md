@@ -82,6 +82,5 @@ Distributed under the MIT License. See [MIT](https://choosealicense.com/licenses
 
 If you have any questions please reach out via email!
 
-- Email: erik.r.benedict@gmail.com
-- Twitter: [@\_Erik_Benedict](https://twitter.com/_Erik_Benedict)
+- Emails: erik.r.benedict@gmail.com, ilir.hajdari111@gmail.com, akmhobbs@gmail.com, aipuameh.16@gmail.com
 - Project Link: [https://github.com/erikbenedict/hype-hub](https://github.com/erikbenedict/hype-hub)
