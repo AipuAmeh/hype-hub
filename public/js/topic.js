@@ -8,7 +8,6 @@ const newAchievementHandler = async event => {
 
   try {
     if (date && subject && description && topicName) {
-      console.log(imgUrl);
       const achievement = { date, subject, description, topicName, imgUrl };
       const response = await fetch(`/api/topic/${topicName}`, {
         method: 'POST',
