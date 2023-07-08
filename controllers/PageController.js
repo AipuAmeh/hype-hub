@@ -76,7 +76,7 @@ module.exports = {
   },
 
   postAchievement: async (req, res) => {
-    const UUID = `${DataTypes.UUIDV4}`
+    const UUID = `${DataTypes.UUID}`
     const topic = await Topic.findOne({
       where: {
         topic_name: req.params.topicName,
