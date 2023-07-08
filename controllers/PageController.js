@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 const Topic = require('../models/Topic');
 const Achievement = require('../models/Achievement');
+const { DataTypes } = require('sequelize');
 
 module.exports = {
   // *Dashboard controllers
