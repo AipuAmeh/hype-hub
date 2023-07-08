@@ -76,6 +76,7 @@ module.exports = {
   },
 
   postAchievement: async (req, res) => {
+    const UUID = `${DataTypes.UUIDV4}`
     const topic = await Topic.findOne({
       where: {
         topic_name: req.params.topicName,
@@ -85,7 +86,7 @@ module.exports = {
     const topicId = topic.dataValues.id;
     try {
       const newAchievement = await Achievement.create({
-        id: DataTypes.UUIDV4,
+        id: UUID,
         date: req.body.date,
         subject: req.body.subject,
         description: req.body.description,
@@ -94,6 +95,7 @@ module.exports = {
       });
       const achievement = newAchievement.get({ plain: true });
       res.status(201).render('topic', {
+        id: achievement.id,
         date: achievement.date,
         subject: achievement.subject,
         description: achievement.description,
