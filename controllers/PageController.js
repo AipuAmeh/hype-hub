@@ -84,6 +84,7 @@ module.exports = {
     const topicId = topic.dataValues.id;
     try {
       const newAchievement = await Achievement.create({
+        id: DataTypes.UUIDV4,
         date: req.body.date,
         subject: req.body.subject,
         description: req.body.description,
