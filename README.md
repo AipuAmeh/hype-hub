@@ -2,7 +2,7 @@
 
 ## Description
 
-HypeHub is an interactive application that allows users to document and showcase their achievements to reflect on growth, share progress with others, stay motivated.
+HypeHub is an interactive application that allows users to document and showcase their achievements to reflect on growth, share progress with others, stay motivated, and have a home for all of these things to easily access and manage. Whether you're going into a job interview, asking for a promotion, growing a hobby, or just want to hype yourself up a little by reflecting previous accomplishments, HypeHub is the solution to setting yourself up for even more success!
 
 ## Built With
 
