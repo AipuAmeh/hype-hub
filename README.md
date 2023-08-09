@@ -9,6 +9,7 @@ HypeHub is an interactive application that allows users to document and showcase
 - Express.js
 - MySQL
 - Sequelize
+- Bootstrap
 - Cloudinary
 
 ## Getting Started
